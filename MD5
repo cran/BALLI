@@ -1,0 +1,14 @@
+b91cd038c8ccfe97c449818831a09a4b *DESCRIPTION
+644b8ed6c12d532c7ecd336ed5bbdc3c *NAMESPACE
+8b40900c4639bef2784e73474f8b925c *R/BALLI.v0.2.R
+42c5de8a3d8b29b08d99d48f93f05a3e *build/vignette.rds
+9de6ef7e3445254dccf16f6b1748528d *inst/doc/QuickStart.R
+cd9fc60a66d50367b3f6ac3f69e320be *inst/doc/QuickStart.Rmd
+2e83707d8922fec5bac6686fb1b36850 *inst/doc/QuickStart.html
+708703b0f3eb55bb6f75516eacd741a4 *man/Balli-class.Rd
+46b88a9d756e891d418e14d0c016836e *man/LargeDataObject-class.Rd
+2d0143b61b8aac5bd59b4610de00a78a *man/TecVarList-class.Rd
+d118643b4e40cc4ba84ef7679a58a0f8 *man/balli.Rd
+58c91ad701532c3a24e435e8dfbc093b *man/balliFit.Rd
+0537ea67f181329bf691133f161e0b16 *man/tecVarEstim.Rd
+cd9fc60a66d50367b3f6ac3f69e320be *vignettes/QuickStart.Rmd

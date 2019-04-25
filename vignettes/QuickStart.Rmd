@@ -1,0 +1,71 @@
+---
+title: "Quick start of BALLI package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quick start of BALLI package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+# Quick Start
+
+This is an quick start manual of **BALLI**
+
+```{r load-packages, message=FALSE, warning=F}
+require(BALLI)
+```
+
+### 1. Load Count Data 
+
+```
+data <- data.frame(read.table("counts.txt"))
+```
+
+or make example count data 
+
+```{r}
+GenerateData <- function(nRow) {
+	expr_mean <- runif(1,10,100)
+	expr_size <- runif(1,1,10)
+	expr <- rnbinom(20,mu=expr_mean,size=expr_size)
+	return(expr)
+}
+
+data <- data.frame(t(sapply(1:10000,GenerateData)))
+colnames(data) <- c(paste0("A",1:10),paste0("B",1:10))
+rownames(data) <- paste0("gene",1:10000)
+head(data)
+```
+
+### 2. Designate Group Information and Make Design Matrix 
+
+```{r}
+Group <- c(rep("A",10),rep("B",10))
+Group
+```
+```{r}
+design <- model.matrix(~Group, data = data)
+head(design)
+```
+
+### 3. Normalize Count Data
+
+```{r}
+dge <- DGEList(counts=data, group=Group)
+dge <- calcNormFactors(dge)
+dge
+```
+
+### 4. Estimate Technical Variance
+
+```{r}
+tV <- tecVarEstim(dge,design)
+tV
+```
+
+### 5. Fit BALLI and See Top Significant Genes
+
+```{r}
+fit <- balli(tV,intV=2)
+fit
+```
